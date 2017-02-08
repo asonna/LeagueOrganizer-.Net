@@ -1,0 +1,64 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "To Do List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<LeagueOrganizer.Models.Team>
+
+
+    <h2>League Organizer</h2>
+    <hr />
+    <table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TeamName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CaptainName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Division.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Division.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Division.MaxTeam)
+        </th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var listTeam in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelTeam => listTeam.TeamName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelTeam => listTeam.CaptainName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelTeam => listTeam.Division.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelTeam => listTeam.Division.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelTeam => listTeam.Division.MaxTeam)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = listTeam.TeamId })
+                @Html.ActionLink("Edit", "Edit", new { id = listTeam.TeamId })
+            @Html.ActionLink("Delete", "Delete", new { id = listTeam.TeamId })
+            </td>
+        </tr>
+    }
+</table>
+
+<p>
+    @Html.ActionLink("Add new team", "Create")
+</p>

@@ -1,0 +1,18 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model LeagueOrganizer.Models.Team
+
+@{
+    ViewData["Title"] = "Team - Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+<hr />
+
+<p>@Html.DisplayNameFor(model => model.TeamName): @Html.DisplayFor(model => model.TeamName)</p>
+<p>@Html.DisplayFor(model => model.CaptainName)</p>
+
+<p>@Html.ActionLink("Edit", "Edit", new { id = Model.TeamId }) | @Html.ActionLink("Back to team list", "Index")</p>

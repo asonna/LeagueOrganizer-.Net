@@ -1,0 +1,31 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model LeagueOrganizer.Models.Team
+
+@{
+    ViewData["Title"] = "Item - Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h2>Edit</h2>
+    <hr />
+    <h4>Edit this team: @Html.DisplayFor(model => model.TeamName)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.TeamId)
+
+    @Html.LabelFor(model => model.TeamName)
+    @Html.EditorFor(model => model.TeamName)
+
+    @Html.LabelFor(model => model.CaptainName)
+    @Html.EditorFor(model => model.CaptainName)
+
+    @Html.LabelFor(model => model.DivisionId)
+    @Html.DropDownList("DivisionId")
+
+    <input type="submit" value="Save" class="btn btn-default" />
+}
+@Html.ActionLink("Back to team list", "Index")

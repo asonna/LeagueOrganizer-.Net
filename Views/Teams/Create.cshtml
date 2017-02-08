@@ -1,0 +1,30 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model LeagueOrganizer.Models.Team
+
+@{
+    ViewData["Title"] = "Team - Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Create a new team</h2>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.TeamName)
+    @Html.TextBoxFor(model => model.TeamName)
+
+    @Html.LabelFor(model => model.CaptainName)
+    @Html.TextBoxFor(model => model.CaptainName)
+
+    @Html.LabelFor(model => model.DivisionId)
+    @Html.DropDownList("DivisionId")
+
+    <input type="submit" value="Add new team" class="btn btn-default"/>
+}
+
+@Html.ActionLink("Back to team list", "Index")
